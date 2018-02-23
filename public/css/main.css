@@ -1,0 +1,88 @@
+/* Amarillo: # FFE521
+Magenta: #FF009E
+Verde: #56F89A
+Negro: #000000 
+font-family: 'Open Sans', sans-serif;
+font-family: 'Bitter', serif;
+*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F7F7F7;
+  box-sizing: border-box
+}
+
+header {
+  font-family: 'Bitter', serif;
+}
+nav {
+  background-color: #FFFFFF;
+}
+.card-content {
+  background-color: rgba(255, 229, 33, 0.6);
+  box-shadow: 5px 5px 10px #c3c3c3;
+}
+.card-title {
+  font-weight: bold!important;
+  font-size: 24px!important;
+}
+.card {
+  background-color: #FFE521;
+  padding: 2vh;
+  box-shadow: 1px 1px 10px #C3C3C3;
+}
+.list-student {
+  border: none;
+  border-radius: 5px;
+
+  
+}
+.container-images {
+  background-color: #FFFFFF;
+  padding: 5px;
+  /* box-shadow: 1px 1px 1px rgb(255, 255, 255) */
+  /* margin-bottom: 10px; */
+  border-radius: 10px;
+}
+               
+.container-images img {
+  box-shadow: 3px 3px 5px #C3C3C3;
+  border: 1px solid #C3C3C3;
+
+}
+.mt-5{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.btns button {
+  background-color: #FFE521;
+  color: #000000;
+}
+.btns button:hover {
+  background-color: #b9f6ca;
+}
+.btns button:focus {
+  background-color: #b9f6ca;
+}
+
+.card-content p {
+  background-color: #FFFFFF;
+  /* border: 1px solid #000000; */
+  border-radius: 5px;
+  padding: 3px;
+  margin-top: 5px!important;
+  box-shadow: 3px 3px 1px #c3c3c3;
+  
+}
+
+
+
+.avatar {
+ 
+  min-height: 50px!important; 
+}
+
+
+.avatar img {
+  /* border: 1px solid red; */
+  box-shadow: 1px 1px 5px #000000;
+}
