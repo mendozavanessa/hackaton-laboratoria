@@ -131,6 +131,15 @@ window.addEventListener('load', function() {
       });
     });
   }
+
+  $('#btn-reorganizar').on('click', function() {
+    $('#sq1').empty();
+    $('#sq2').empty();
+    $('#sq3').empty();
+    $('#sq4').empty();
+    $('#sq5').empty();
+    organizar();
+  });
 });
 
 // Funcion de mayor a menos
