@@ -163,5 +163,5 @@ var template = `
 `;
 
 
-$('#container-sq').append(template);
+// $('#container-sq').append(template);
 
