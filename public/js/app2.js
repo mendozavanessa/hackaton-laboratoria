@@ -64,22 +64,36 @@ dbRefObject.on('value', function(snap) {
   console.log(arrPro);
   console.log(arrMin); */
   var x = Math.floor((Math.random() * 10) + 1);
-  var y = Math.floor((Math.random() * 10) + 1);
+  // var y = Math.floor((Math.random() * 5) + 1);
+  // console.log(y);
   
-  console.log(x);
-  console.log(arrMax[x]);
+  // console.log(x);
+  // console.log(arrMax[x]);
   // arrMax.splice(x, 1);
 
   sq1.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 1)) + 1);
   sq2.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 2)) + 1);
   sq3.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 3)) + 1);
   sq4.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 4)) + 1);
   sq5.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
-  sq1.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
-  sq2.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
-  sq3.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
-  sq4.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
-  sq5.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  x = Math.floor((Math.random() * (x - 5)) + 1);
+  sq1.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 6)) + 1);
+  sq2.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 7)) + 1);
+  sq3.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 8)) + 1);
+  sq4.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  x = Math.floor((Math.random() * (x - 9)) + 1);
+  sq5.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  console.log(arrMax);
+  console.log(arrMin);
+  console.log(arrPro);
+  console.log('squead');
   console.log(sq1);
   console.log(sq2);
   console.log(sq3);
