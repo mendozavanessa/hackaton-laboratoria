@@ -27,7 +27,7 @@ nav {
 
 .card-title {
   font-weight: bold !important;
-  font-size: 24px !important;
+  font-size: 20px !important;
 }
 
 .card {
@@ -120,4 +120,25 @@ nav {
 
 .offset-m0 {
   margin-left: 5vh !important;
+}
+
+div[data-box="marco"] p {
+  margin: 1px;
+
+}
+.name-student {
+  background-color: #b9f6ca;
+  border: 4px solid #b9f6ca;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 3px 3px 1px #cecece;
+}
+.image-student {
+  text-align: center;  
+ 
+
+}
+
+ .star {
+  color: #FF009E!important;
 }
