@@ -1,101 +1,63 @@
 // Referencia a la base de datos
-// const dbRefObject = firebase.database().ref();
+const dbRefObject = firebase.database().ref();
 
-// // sincronizar cambios
-// dbRefObject.on('value', function(snap) {
-//   console.log(snap.val());
+// sincronizar cambios
+dbRefObject.on('value', function(snap) {
+  console.log(snap.val());
 
-//   // STUDENTS
-//   var students = snap.val();
-//   var sq1;
-//   var sq2;
-//   var sq3;
-//   var sq4;
-//   var sq5;
-//   var aux = 0;
+  // STUDENTS
+  var students = snap.val();
+  var sq1 = [];
+  var sq2 = [];
+  var sq3 = [];
+  var sq4 = [];
+  var sq5 = [];
+  // var aux = 0;
+  var arrStudiantesProm = [];
+  // var promStudentArr = [];
+  students.forEach(function(element) {
+    var promStudent;
+    var englishStudents = element.english;
+    var englishNote;
 
-//   students.forEach(function(element, index) {
-//     // console.log(element);
+    // console.log(englishStudents);
+    if (englishStudents === 0) {
+      // console.log('cero');
+      englishNote = 0.25;
+      // console.log(englishNote);
+      // console.log(promStudent);
+    } else if (englishStudents === 1) {
+      // console.log('uno');
+      englishNote = 0.5;
+      // console.log(englishNote);
+    } else if (englishStudents === 2) {
+      // console.log('dos');
+      englishNote = 0.75;
 
-//     if (index === 0) {
-//       sq1 = element.companeras.sprint_3;
-//       sq1.push(index);
-//       console.log(sq1);
-//       aux++;
-//     } else if (index !== 0) {
-//       // sq1.find(index);
-//       if (sq1.indexOf(index) === -1) {
-//         sq2 = element.companeras.sprint_3;
-//         console.log(sq2);
-//       }
-//     }
+      // console.log(promStudent);
+    } else if (englishStudents === 3) {
+      // console.log('tres');
+      englishNote = 1;
+      // console.log(englishNote);
 
-//   });
-//   // // console.log(students[0].companeras.sprint_3);
-//   // sq1 = students[0].companeras.sprint_3;
-//   // sq1.push(aux);
-
-//   // function Search() {
-//   //   for (let index = 1; index < sq1.length; index++) {
-//   //     // if ((aux + 1) === sq1[index]) {
-
-//   //     // }
-
-//   //   }
-//   // };
-
-
-//   // console.log(sq1.sort());
-//   // console.log(sq1);
-//   // sq1.sort(1);
-
-
-
-//   // students.forEach(function(element) {
-//   //   var arrCompañeras = element.companeras.sprint_3;
-
-//   //   console.log(arrCompañeras);
-
-//   // });
-// });
-
-window.addEventListener('load', function () {
-  document.addEventListener('dragstart', drag);
-  document.addEventListener('dragover', permitirDrop);
-  document.addEventListener('drop', drop);
-
-  function drag(event) {
-    // console.log(event)
-    event.dataTransfer.setData('text', event.target.id);
-  }
-
-  function permitirDrop(event) {
-    event.preventDefault();
-  }
-
-  function drop(event) {
-    event.preventDefault();
-    console.log(event.target);
-    if (event.target.dataset.box === 'marco') {
-      let idName = event.dataTransfer.getData('text');
-      console.log(idName);
-      event.target.appendChild(document.getElementById(idName));
+      // console.log(promStudent);
     }
-  }
 
-  //  function drag(event) {
-  //   // event.dataTransfer.setData('text', event.target.dataset.id);
-  //   // console.log(event.dataTransfer.setData)
-  // }
+    promStudent = (englishNote + parseInt(element.soft_skills.sprint_3.comunicacion) + parseInt(element.tech_skills.sprint_3)) / 3;
+    promStudent = promStudent.toFixed(2) * 100;
 
-  // function drag(event) {
-  //   event.dataTransfer.setData('text', event.target.dataset.id);
-  //   console.log()
-  // }
-
-  // function permitirDrop(event) {
-  //   event.preventDefault();
-  // }
+    // promStudentArr.push(promStudent);
+    // bubble(promStudentArr);
+    // console.log(promStudentArr);
+    arrStudiantesProm.push([element.index, promStudent]);
+  });
+  bubble(arrStudiantesProm);
+  console.log(arrStudiantesProm);
+  /* var firstStudent = arrStudiantesProm.shift();
+  var secondStudent = arrStudiantesProm.pop(); */
+  var arrMax = arrStudiantesProm.slice(0, 10);
+  var arrPro = arrStudiantesProm.slice(10, 20);
+  var arrMin = arrStudiantesProm.slice(20, 30);
 
   // function drop(event) {
   //   event.preventDefault();
@@ -169,3 +131,48 @@ window.addEventListener('load', function () {
 // function dragFinalizado(e) {
 //   this.style.backgroundColor='red';
 // }
+  /* console.log(arrMax);
+  console.log(arrPro);
+  console.log(arrMin); */
+  var x = Math.floor((Math.random() * 10) + 1);
+  var y = Math.floor((Math.random() * 10) + 1);
+  
+  console.log(x);
+  console.log(arrMax[x]);
+  // arrMax.splice(x, 1);
+
+  sq1.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  sq2.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  sq3.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  sq4.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  sq5.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
+  sq1.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  sq2.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  sq3.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  sq4.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  sq5.push((arrMax.splice(y, 1)), (arrPro.splice(y, 1)), (arrMin.splice(y, 1)));
+  console.log(sq1);
+  console.log(sq2);
+  console.log(sq3);
+  console.log(sq4);
+  console.log(sq5);
+
+});
+
+function bubble(arr) {//va hundiendo al elemento mas grande
+  for (i = 0; i < arr.length; i++) {
+    for (j = i + 1; j < arr.length; j++) {
+      if (arr[j][1] < arr[i][1]) {//intercambiar valores
+        var aux = arr[j][1];
+        var aux1 = arr[j][0];
+        arr[j][1] = arr[i][1];
+        arr[j][0] = arr[i][0];
+        arr[i][1] = aux;
+        arr[i][0] = aux1;
+      }
+    }
+  }
+  return arr;
+}
+
+
