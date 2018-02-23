@@ -43,7 +43,7 @@ nav {
 
 .container-images {
   background-color: #FFFFFF;
-  padding: 5px;
+  padding: 5px 5px 70px 5px !important;
   /* box-shadow: 1px 1px 1px rgb(255, 255, 255) */
   /* margin-bottom: 10px; */
   border-radius: 10px;
@@ -135,9 +135,15 @@ div[data-box="marco"] p {
 }
 .image-student {
   text-align: center;  
- 
-
 }
+
+.logo img{
+  width: 50px!important;
+  height: 50px!important;
+  float: right;
+  margin-right: 20px;
+  margin-top: 5px;
+  }
 
  .star {
   color: #FF009E!important;
