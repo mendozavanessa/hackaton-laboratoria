@@ -100,6 +100,13 @@ dbRefObject.on('value', function(snap) {
   console.log(sq4);
   console.log(sq5);
 
+  function obtenerSprint() {
+    sprintNew = (Object.keys(students[0].soft_skills)).length + 1;
+    return sprintNew;
+  }
+
+  console.log(obtenerSprint());
+  
 });
 
 function bubble(arr) {//va hundiendo al elemento mas grande
@@ -118,4 +125,43 @@ function bubble(arr) {//va hundiendo al elemento mas grande
   return arr;
 }
 
+x = 'cambiar';
+
+var template = `
+  <div class="col s12  m6 l4">
+  <div class="card">
+    <span class="card-title black-text">
+      <i class="material-icons">dialpad</i> Squad ${x}</span>
+    <div class="row container-images" style=" margin:5px ; padding: 5px">
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+      <div class="col m4 mt-5 center-align">
+        <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+        <span>${x}</span>
+      </div>
+    </div>
+  </div>
+  </div>
+`;
+
+
+$('#container-sq').append(template);
 
