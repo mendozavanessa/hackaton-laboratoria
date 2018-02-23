@@ -127,11 +127,9 @@ div[data-box="marco"] p {
 
 }
 .name-student {
-  border: 2px solid #FF009E;
-  border-radius: 5px;
+  border-bottom: 2px solid #FF009E;
   text-align: center;
   font-weight: bold;
-  box-shadow: 3px 3px 1px #cecece;
 }
 .image-student {
   text-align: center;  

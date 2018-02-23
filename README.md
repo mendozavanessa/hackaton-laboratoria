@@ -53,3 +53,7 @@ Los niveles de inglés se miden así:
 ## Descripción de la aplicación
 
 La Training Manager de Laborotaria, para resolver la necesidad anteriormente mencionada, accede a la aplicación en donde, esta al cargar la página va mostrarle la generación automática de los squads del proximo sprint, y si ella desea volver a generar deberá dar click en el botón reorganizar, se volverá a generar nuevos squdas según lo parámetos establecidos; y también si esto no satisfacería su criterio de aplicacion, ésta podria arrastrar y soltar elementos para balancear de acuerdo a sus criterios; y finalmente tendría la opción de alamcena ry validar esos de datos respecto a los parámetros establecidos.
+
+## Planeamiento y Solución
+
+![trello](https://user-images.githubusercontent.com/32307611/36618295-97fca54c-18b8-11e8-8b33-87af9deddae9.jpg)
