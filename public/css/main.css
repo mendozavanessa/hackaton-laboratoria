@@ -127,8 +127,8 @@ div[data-box="marco"] p {
 
 }
 .name-student {
-  background-color: #FF009E;
-  border: 4px solid #FF009E;
+  border: 2px solid #FF009E;
+  border-radius: 5px;
   text-align: center;
   font-weight: bold;
   box-shadow: 3px 3px 1px #cecece;
@@ -149,6 +149,16 @@ div[data-box="marco"] p {
   color: #56F89A!important;
 }
 
+.tittle-sprint{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.btn-color{
+  background-color:  #56F89A!important;
+  color: black;
+  font-weight: bolder;
+}
 /* [data-box="marco"] {
   opacity: 0.5;
 } */
