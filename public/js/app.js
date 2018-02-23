@@ -192,26 +192,6 @@ window.addEventListener('load', function () {
     $('#sq5').empty();
     organizar();
   });
-
-  // alert
-  $('#btns').on('click', function() {
-    swal({
-      title: 'Are you sure?',
-      text: 'Once deleted, you will not be able to recover this imaginary file!',
-      icon: 'warning',
-      buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal('Poof! Your imaginary file has been deleted!', {
-            icon: 'success',
-          });
-        } else {
-          swal('Your imaginary file is safe!');
-        }
-      });
-  });
 });
 
 // Funcion de mayor a menos
@@ -230,3 +210,8 @@ function bubble(arr) {
   }
   return arr;
 }
+
+$(document).ready(function() {
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  $('.modal').modal();
+});

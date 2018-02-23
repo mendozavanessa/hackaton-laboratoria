@@ -37,6 +37,18 @@
           </div>
         </div>
       </div>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col s12 center-align">
+              <button id="btn-reorganizar" class="btn waves-effect waves-light" name="action">Reorganizar
+              </button>
+              <button id="btns" class="waves-effect waves-light btn modal-trigger" href="#modal1" name="action">Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
     <section>
       <div class="container-fluid">
@@ -85,26 +97,24 @@
                 </div>
               </div>
             <!-- </div> -->
-
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col s12 offset-m7 m5">
-            <button class="btn waves-effect waves-light " name="action">Reorganizar
-            </button>
-            <button class="btn waves-effect waves-light" name="action">Guardar
-            </button>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Alerta!!!</h4>
+      <p>Estas segura(o) de guardar los cambios</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Guardar</a>
+    </div>
+  </div>
+
   <script type="text/javascript" src="vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src ="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
   <script src="vendors/materialize/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
   <script src="js/firebase.js"></script>
