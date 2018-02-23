@@ -1,10 +1,10 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   // alert('hola');
   // Referencia a la base de datos
   const dbRefObject = firebase.database().ref();
 
   // sincronizar cambios
-  dbRefObject.on('value', function(snap) {
+  dbRefObject.on('value', function (snap) {
     console.log(snap.val());
 
     // STUDENTS
@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
     // var aux = 0;
     var arrStudiantesProm = [];
     // var promStudentArr = [];
-    students.forEach(function(element) {
+    students.forEach(function (element) {
       var promStudent;
       var englishStudents = element.english;
       var englishNote;
@@ -92,21 +92,21 @@ window.addEventListener('load', function() {
     sq4.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
     x = Math.floor((Math.random() * (x - 9)) + 1);
     sq5.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
-/*     console.log(arrMax);
-    console.log(arrMin);
-    console.log(arrPro);
-    console.log('squead'); */
+    /*     console.log(arrMax);
+        console.log(arrMin);
+        console.log(arrPro);
+        console.log('squead'); */
     console.log(sq1);
-/*     console.log(sq2);
-    console.log(sq3);
-    console.log(sq4);
-    console.log(sq5); */
-    newSq1 = [[sq1[0]][0][0][0], [sq1[1]][0][0][0], [sq1[2]][0][0][0], [sq1[3]][0][0][0], [sq1[4]][0][0][0], [sq1[5]][0][0][0]];
-    newSq2 = [[sq2[0]][0][0][0], [sq2[1]][0][0][0], [sq2[2]][0][0][0], [sq2[3]][0][0][0], [sq2[4]][0][0][0], [sq2[5]][0][0][0]];
-    newSq3 = [[sq3[0]][0][0][0], [sq3[1]][0][0][0], [sq3[2]][0][0][0], [sq3[3]][0][0][0], [sq3[4]][0][0][0], [sq3[5]][0][0][0]];
-    newSq4 = [[sq4[0]][0][0][0], [sq4[1]][0][0][0], [sq4[2]][0][0][0], [sq4[3]][0][0][0], [sq4[4]][0][0][0], [sq4[5]][0][0][0]];
-    newSq5 = [[sq5[0]][0][0][0], [sq5[1]][0][0][0], [sq5[2]][0][0][0], [sq5[3]][0][0][0], [sq5[4]][0][0][0], [sq5[5]][0][0][0]];
-    newSq6 = [[sq6[0]][0][0][0], [sq6[1]][0][0][0], [sq6[2]][0][0][0], [sq6[3]][0][0][0], [sq6[4]][0][0][0], [sq6[5]][0][0][0]];
+    /*     console.log(sq2);
+        console.log(sq3);
+        console.log(sq4);
+        console.log(sq5); */
+    var newSq1 = [[sq1[0]][0][0][0], [sq1[1]][0][0][0], [sq1[2]][0][0][0], [sq1[3]][0][0][0], [sq1[4]][0][0][0], [sq1[5]][0][0][0]];
+    var newSq2 = [[sq2[0]][0][0][0], [sq2[1]][0][0][0], [sq2[2]][0][0][0], [sq2[3]][0][0][0], [sq2[4]][0][0][0], [sq2[5]][0][0][0]];
+    var newSq3 = [[sq3[0]][0][0][0], [sq3[1]][0][0][0], [sq3[2]][0][0][0], [sq3[3]][0][0][0], [sq3[4]][0][0][0], [sq3[5]][0][0][0]];
+    var newSq4 = [[sq4[0]][0][0][0], [sq4[1]][0][0][0], [sq4[2]][0][0][0], [sq4[3]][0][0][0], [sq4[4]][0][0][0], [sq4[5]][0][0][0]];
+    var newSq5 = [[sq5[0]][0][0][0], [sq5[1]][0][0][0], [sq5[2]][0][0][0], [sq5[3]][0][0][0], [sq5[4]][0][0][0], [sq5[5]][0][0][0]];
+
     console.log(newSq2);
 
     function obtenerSprint() {
@@ -116,23 +116,60 @@ window.addEventListener('load', function() {
     // cambiar el ultimo sprint
     document.getElementById('number-sprint').textContent = obtenerSprint();
 
-    console.log(obtenerSprint());
+    // console.log(obtenerSprint());
+    // console.log(name);
+
 
     // agregando al DOM
-    dbRefObject.on('value', function(snapshot) {
+    dbRefObject.on('value', function (snapshot) {
       student = snapshot.val();
-      student.forEach(function(element) {
-        var algo = students.english;
-        // console.log(element.name.first);
-        if (element.index[0] === sq1[[0]]) {
-          console.log(element.name.first);
+      
+      function pintarSquad(squead, container) {
+        var template = '';
+        for (let i = 0; i < squead.length; i++) {
+          for (let j = 0; j < student.length; j++) {
+            if (squead[i] === student[j].index) {
+              console.log(student[j].name.first);
+              var names = student[j].name.first;
+              var last = student[j].name.last;
+              var tech = student[j].tech_skills.sprint_3;
+              var soft = student[j].soft_skills.sprint_3.comunicacion;
+              var eng = student[j].english;
+              template += `<div id="${squead[i]}" class="col m4 mt-5 center-align" draggable=true>
+              <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
+              <span>${names}</span>
+              <span>${last}</span>
+              <span>Tech: ${tech}</span>
+              <span>Soft Skills: ${soft}</span>
+              <span>Eng: ${eng}</span>
+            </div>`;
+              // console.log(template);
+            }
+          }
         }
+        $(container).append(template);
+      }
+
+      $(pintarSquad(newSq1,'#sq1'));
+      $(pintarSquad(newSq2,'#sq2'));
+      $(pintarSquad(newSq3,'#sq3'));
+      $(pintarSquad(newSq4,'#sq4'));
+      $(pintarSquad(newSq5,'#sq5'));
+
+      /* newSq1.forEach(function(element, i) {
+        
+        student.forEach(function(elm, j) {
+          if (newSq1[i] === elm[j]) {
+            console.log(elm.name);
+          }
+        });
         // if(element.index === sq[0])
         // element.name.first
         x = 'cambiar';
-      });
+      }); */
     });
-    var template = `
+
+    /* var template = `
   <div class="col s12  m6 l4">
   <div class="card">
     <span class="card-title black-text">
@@ -140,7 +177,7 @@ window.addEventListener('load', function() {
     <div class="row container-images" style=" margin:5px ; padding: 5px">
       <div class="col m4 mt-5 center-align">
         <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
-        <span>${x}</span>
+        <span>${names}</span>
       </div>
       <div class="col m4 mt-5 center-align">
         <img src="assets/img/user.png" alt="" class="circle" height="50px" width="50px">
@@ -164,8 +201,8 @@ window.addEventListener('load', function() {
       </div>
     </div>
   </div>
-  </div>
-`;
+  </div> 
+`;*/
 
 
     // $('#container-sq').append(template);
@@ -185,5 +222,5 @@ window.addEventListener('load', function() {
       }
     }
     return arr;
-  }  
+  }
 });
