@@ -24,7 +24,9 @@ window.addEventListener('load', function() {
       event.target.appendChild(document.getElementById(idName));
     }
   }
-
-  
+  $('#btn-guardar').on('click', function() {
+    $('.bloqueado').attr('draggable', false);
+    $('.container-images').addClass('plomo');
+  });
 });
     

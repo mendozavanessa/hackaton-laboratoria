@@ -1,11 +1,11 @@
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
   const dbRefObject = firebase.database().ref();
 
   organizar();
 
   function organizar() {
     // sincronizar cambios
-    dbRefObject.on('value', function (snap) {
+    dbRefObject.on('value', function(snap) {
       console.log(snap.val());
 
       // STUDENTS
@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
       var sq4 = [];
       var sq5 = [];
       var arrStudiantesProm = [];
-      students.forEach(function (element) {
+      students.forEach(function(element) {
         var promStudent;
         var englishStudents = element.english;
         var englishNote;
@@ -79,49 +79,20 @@ window.addEventListener('load', function () {
       sq4.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
       x = Math.floor((Math.random() * (x - 9)) + 1);
       sq5.push((arrMax.splice(x, 1)), (arrPro.splice(x, 1)), (arrMin.splice(x, 1)));
-      console.log(sq1);
-      var newSq1 = [
-        [sq1[0]][0][0][0],
-        [sq1[1]][0][0][0],
-        [sq1[2]][0][0][0],
-        [sq1[3]][0][0][0],
-        [sq1[4]][0][0][0],
-        [sq1[5]][0][0][0]
-      ];
-      var newSq2 = [
-        [sq2[0]][0][0][0],
-        [sq2[1]][0][0][0],
-        [sq2[2]][0][0][0],
-        [sq2[3]][0][0][0],
-        [sq2[4]][0][0][0],
-        [sq2[5]][0][0][0]
-      ];
-      var newSq3 = [
-        [sq3[0]][0][0][0],
-        [sq3[1]][0][0][0],
-        [sq3[2]][0][0][0],
-        [sq3[3]][0][0][0],
-        [sq3[4]][0][0][0],
-        [sq3[5]][0][0][0]
-      ];
-      var newSq4 = [
-        [sq4[0]][0][0][0],
-        [sq4[1]][0][0][0],
-        [sq4[2]][0][0][0],
-        [sq4[3]][0][0][0],
-        [sq4[4]][0][0][0],
-        [sq4[5]][0][0][0]
-      ];
-      var newSq5 = [
-        [sq5[0]][0][0][0],
-        [sq5[1]][0][0][0],
-        [sq5[2]][0][0][0],
-        [sq5[3]][0][0][0],
-        [sq5[4]][0][0][0],
-        [sq5[5]][0][0][0]
-      ];
+      var numStudent = 6;
 
-      console.log(newSq2);
+      function newSquad(sq) {
+        var newArr = [];
+        for (var i = 0; i < numStudent; i++) {
+          newArr.push([sq[i]][0][0][0]);
+        }
+        return newArr;
+      }
+      var newSq1 = newSquad(sq1);
+      var newSq2 = newSquad(sq2);
+      var newSq3 = newSquad(sq3);
+      var newSq4 = newSquad(sq4);
+      var newSq5 = newSquad(sq5);
 
       function obtenerSprint() {
         sprintNew = (Object.keys(students[0].soft_skills)).length + 1;
@@ -131,7 +102,7 @@ window.addEventListener('load', function () {
       document.getElementById('number-sprint').textContent = obtenerSprint();
 
       // agregando al DOM
-      dbRefObject.on('value', function (snapshot) {
+      dbRefObject.on('value', function(snapshot) {
         student = snapshot.val();
 
         function pintarSquad(squead, container) {
@@ -146,27 +117,37 @@ window.addEventListener('load', function () {
                 var soft = student[j].soft_skills.sprint_3.comunicacion;
                 var eng = student[j].english;
                 var start = '';
-                
-                if(tech>0.7){
-                  start+= '<i class="material-icons tiny star">star</i>';
+
+                if (tech > 0.7) {
+                  start += '<i class="material-icons tiny star">star</i>';
                 }
-                if(soft>0.7) {
-                  start+= '<i class="material-icons tiny star">star</i>';
+                if (soft > 0.7) {
+                  start += '<i class="material-icons tiny star">star</i>';
                 }
-                if(eng>1) {
-                  start+= '<i class="material-icons tiny star">star</i>';
+                if (eng > 1) {
+                  start += '<i class="material-icons tiny star">star</i>';
+                }
+                var nameEng;
+                switch (eng) {
+                case 0: nameEng = '-';
+                  break;
+                case 1: nameEng = 'básico';
+                  break;
+                case 2: nameEng = 'intermedio';
+                  break;
+                case 3: nameEng = 'avanzado';
+                  break;
                 }
 
                 // console.log(start);
 
 
-
-                template += `<div id="${squead[i]}" class="col m4 mt-5 " draggable=true>
+                template += `<div id="${squead[i]}" class="col m4 mt-5 bloqueado" draggable=true>
               <img src="assets/img/user.png" alt="" class="circle image-student" height="50px" width="50px"> ${start}
               <p class="name-student">${names}  ${last} </p>
-              <p><b>Tech:</b> ${tech}</p>
-              <p><b>Soft Skills:</b> ${soft}</p>
-              <p><b>Eng: </b> ${eng}</p>
+              <p><b>Tech:</b> ${(tech * 100).toFixed(0)}%</p>
+              <p><b>Soft Skills:</b> ${(soft * 100).toFixed(0)}%</p>
+              <p><b>Eng: </b> ${nameEng}</p>
             </div>`;
 
                 // star_border
